@@ -1,0 +1,48 @@
+- install new laravel project:
+composer create-project --prefer-dist laravel/laravel BasicBlog
+
+- create database using terminal:
+mysql -u root
+CREATE DATABASE basicblog CHARACTER SET utf8 COLLATE utf8_general_ci;
+exit
+
+- edit .env file
+DB_DATABASE=basicblog
+DB_USERNAME=root
+DB_PASSWORD=
+
+- cd to BasicBlog folder and create models with migration and resourcful controller:
+php artisan make:model Post -mr
+php artisan make:model Comment -mr
+php artisan make:model Reply -mr
+
+- create columns in migrations and fill each models:
+posts table
+comment table
+reply table
+
+- relations with each model:
+1 user 		-> many posts		& inversion
+1 post 		-> many comments	& inversion
+1 comment 	-> many replies		& inversion
+
+- migrate db and use auth command with its scaffolding
+php artisan migrate
+php artisan make:auth
+
+- register a new user:
+John Doe
+j.doe@company.com
+password
+
+- Rename controllers and its class names to suit plural naming conventions:
+PostController to PostsController
+CommentController to CommentsController
+ReplyController to RepliesController
+
+- design the UI:
+home
+create new folder resources/views/posts
+create create-show-edit files inside posts folder.
+
+- add comment process
