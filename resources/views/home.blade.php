@@ -16,7 +16,15 @@
             <p class="card-text">
                 <small class="float-left">By: {{ $post->owner->name }}</small>
                 <small class="float-right text-muted">{{ $post->created_at->format('M d, Y h:i A') }}</small>
+                @if (auth()->id() == $post->owner->id )
+                    <small class="float-right mr-2 ml-2">
+                        <a href="{{ route('posts.edit', $post->id) }}" class="float-right">edit your post</a>
+                    </small>
+                @endif
             </p>
+
+
+
         </div>
     </div>
 @empty

@@ -59,7 +59,7 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit')->with('post', $post);
     }
 
     /**
@@ -71,7 +71,17 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $this->validate(request(), [
+            'title' => 'required|min:1|max:255',
+            'body'  => 'required|min:1|max:300'
+        ]);
+
+        $post->update([
+            'title'     => request()->title,
+            'body'      => request()->body
+        ]);
+
+        return redirect($post->path());
     }
 
     /**
