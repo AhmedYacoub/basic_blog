@@ -6,5 +6,5 @@
     <li>now run <code>php artisan serve</code> open your browser and type <code>http://localhost:8000</code></li>
 </ol>
 
-<b>Any suggestion or issues are most than welcome.</b>
+<b>Any suggestions or issues are most than welcome.</b>
 <p>Contact me on <b>ahmed.yacoub@outlook.com</b></p>
